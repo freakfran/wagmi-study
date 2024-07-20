@@ -1,8 +1,8 @@
 'use client'
 import * as React from 'react'
+import {useEffect, useState} from 'react'
 import {Connector, useConnect} from 'wagmi'
 import {Button} from "@/components/ui/button";
-import {useEffect, useState} from "react";
 
 export function WalletOptions() {
     const {connectors, connect} = useConnect()

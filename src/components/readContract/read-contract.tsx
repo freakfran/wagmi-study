@@ -3,10 +3,10 @@ import ReadForm from "@/components/readContract/read-form";
 import ReadResult from "@/components/readContract/read-result";
 import {useForm} from "react-hook-form";
 import {z} from "zod";
-import {Erc20Readable, readErc20Schema, sendTransactionSchema} from "@/schema";
+import {readErc20Schema} from "@/schema";
 import {zodResolver} from "@hookform/resolvers/zod";
-import {erc20Abi, parseEther} from "viem";
-import {useReadContract, useReadContracts} from "wagmi";
+import {erc20Abi} from "viem";
+import {useReadContract} from "wagmi";
 import {useState} from "react";
 import {ReadSkeleton} from "@/components/readContract/read-skeleton";
 
@@ -64,7 +64,7 @@ export default function ReadContract() {
             abi: erc20Abi,
             functionName: functionName,
             address: contractAddress,
-            args: args.trim() ==='' ? undefined :args.split(',') as [`0x${string}`],
+            args: args.trim() === '' ? undefined : args.split(',') as [`0x${string}`],
             query: {
                 enabled: !!functionName && !!contractAddress
             }
@@ -84,7 +84,7 @@ export default function ReadContract() {
     }
 
     return (
-        <div className="w-full flex flex-row justify-center">
+        <div className="w-full flex flex-row justify-center bg-yellow-300">
             <ReadForm form={form} isPending={isLoading} onSubmit={onSubmit}/>
             {
                 isLoading ?

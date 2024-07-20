@@ -5,7 +5,6 @@ import {Button} from "@/components/ui/button";
 import {Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
 import {SubmitHandler, UseFormReturn} from "react-hook-form";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
-import {erc20Abi} from "viem";
 
 interface ReadErc20FormProps {
     form: UseFormReturn<any>,

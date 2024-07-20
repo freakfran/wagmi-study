@@ -1,9 +1,9 @@
 'use client'
-import {useAccount, useBalance, useDisconnect, useEnsAvatar, useEnsName} from "wagmi";
+import {useAccount, useBalance, useEnsAvatar, useEnsName} from "wagmi";
 import {AccountCard} from "@/components/connectWallet/account-card";
 import {WalletOptions} from "@/components/connectWallet/wallet-options";
 import SendTransaction from "@/components/connectWallet/send-transaction";
-import {parseEther} from "viem";
+
 export default function ConnectWallet() {
     // 获取当前连接的账户信息
     const {isConnected,address,chain} = useAccount()
