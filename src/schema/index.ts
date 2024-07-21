@@ -7,9 +7,16 @@ export const sendTransactionSchema = z.object({
 })
 
 export const Erc20Readable = z.enum(["totalSupply", "name", "symbol", "balanceOf","decimals"])
+export const Erc20Writable = z.enum(["approve", "transfer", "transferFrom"])
 
 export const readErc20Schema = z.object({
     contractAddress: z.string().startsWith("0x", "Address must start with 0x"),
     functionName: Erc20Readable,
+    args: z.string().optional(),
+})
+
+export const writeErc20Schema = z.object({
+    contractAddress: z.string().startsWith("0x", "Address must start with 0x"),
+    functionName: Erc20Writable,
     args: z.string().optional(),
 })
